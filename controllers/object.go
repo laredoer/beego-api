@@ -33,6 +33,7 @@ func (o *ObjectController) Post() {
 // @Failure 403 :objectId is empty
 // @router /:objectId [get]
 func (o *ObjectController) Get() {
+
 	objectId := o.Ctx.Input.Param(":objectId")
 	if objectId != "" {
 		ob, err := models.GetOne(objectId)
@@ -51,6 +52,7 @@ func (o *ObjectController) Get() {
 // @Failure 403 :objectId is empty
 // @router / [get]
 func (o *ObjectController) GetAll() {
+	beego.Alert("getObjectId")
 	obs := models.GetAll()
 	o.Data["json"] = obs
 	o.ServeJSON()
