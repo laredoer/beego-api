@@ -11,9 +11,13 @@ import (
 	"api-app/controllers"
 
 	"github.com/astaxie/beego"
+	"api-app/filters"
 )
 
 func init() {
+
+	beego.InsertFilter("/v1/*", beego.BeforeRouter, filters.HasPermission)
+
 	ns := beego.NewNamespace("/v1",
 		beego.NSNamespace("/object",
 			beego.NSInclude(
@@ -23,6 +27,11 @@ func init() {
 		beego.NSNamespace("/user",
 			beego.NSInclude(
 				&controllers.UserController{},
+			),
+		),
+		beego.NSNamespace("/default",
+			beego.NSInclude(
+				&controllers.DefaultController{},
 			),
 		),
 	)

@@ -9,7 +9,7 @@ import (
 
 // Operations about object
 type ObjectController struct {
-	beego.Controller
+	BaseController
 }
 
 // @Title Create

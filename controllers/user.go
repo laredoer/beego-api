@@ -9,7 +9,7 @@ import (
 
 // Operations about Users
 type UserController struct {
-	beego.Controller
+	BaseController
 }
 
 // @Title CreateUser
@@ -99,12 +99,14 @@ func (u *UserController) Delete() {
 // @router /login [get]
 func (u *UserController) Login() {
 	username := u.GetString("username")
+	beego.Info(username)
 	password := u.GetString("password")
 	if models.Login(username, password) {
 		u.Data["json"] = "login success"
 	} else {
 		u.Data["json"] = "user not exist"
 	}
+	u.Ctx.Output.SetStatus(403)
 	u.ServeJSON()
 }
 
