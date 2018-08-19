@@ -29,7 +29,7 @@ func init() {
 				&controllers.UserController{},
 			),
 		),
-		beego.NSNamespace("/default",
+		beego.NSNamespace("/version",
 			beego.NSInclude(
 				&controllers.DefaultController{},
 			),

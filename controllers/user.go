@@ -7,7 +7,7 @@ import (
 	"github.com/astaxie/beego"
 )
 
-// Operations about Users
+// Operations about 用户信息
 type UserController struct {
 	BaseController
 }

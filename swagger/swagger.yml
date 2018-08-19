@@ -11,17 +11,6 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 basePath: /v1
 paths:
-  /default/:
-    get:
-      tags:
-      - default
-      description: get welcome info
-      operationId: DefaultController.welcome
-      responses:
-        "200":
-          description: ""
-          schema:
-            $ref: '#/definitions/.Response'
   /object/:
     get:
       tags:
@@ -229,9 +218,31 @@ paths:
       responses:
         "200":
           description: '{string} logout success'
+  /version/:
+    get:
+      tags:
+      - version
+      description: get version info
+      operationId: DefaultController.version
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/controllers.Response'
 definitions:
-  .Response:
+  .false:
     type: object
+  controllers.Response:
+    title: Response
+    type: object
+    properties:
+      data:
+        $ref: '#/definitions/5824.0xc4202c3d40.false'
+      errcode:
+        type: integer
+        format: int64
+      errmsg:
+        type: string
   models.Object:
     title: Object
     type: object
@@ -274,7 +285,7 @@ tags:
     Operations about object
 - name: user
   description: |
-    Operations about Users
-- name: default
+    Operations about 用户信息
+- name: version
   description: |
-    Operations about default
+    Operations about   版本信息

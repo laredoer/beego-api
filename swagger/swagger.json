@@ -15,23 +15,6 @@
     },
     "basePath": "/v1",
     "paths": {
-        "/default/": {
-            "get": {
-                "tags": [
-                    "default"
-                ],
-                "description": "get welcome info",
-                "operationId": "DefaultController.welcome",
-                "responses": {
-                    "200": {
-                        "description": "",
-                        "schema": {
-                            "$ref": "#/definitions/.Response"
-                        }
-                    }
-                }
-            }
-        },
         "/object/": {
             "get": {
                 "tags": [
@@ -345,11 +328,44 @@
                     }
                 }
             }
+        },
+        "/version/": {
+            "get": {
+                "tags": [
+                    "version"
+                ],
+                "description": "get version info",
+                "operationId": "DefaultController.version",
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/controllers.Response"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
-        ".Response": {
+        ".false": {
             "type": "object"
+        },
+        "controllers.Response": {
+            "title": "Response",
+            "type": "object",
+            "properties": {
+                "data": {
+                    "$ref": "#/definitions/5824.0xc4202c3d40.false"
+                },
+                "errcode": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "errmsg": {
+                    "type": "string"
+                }
+            }
         },
         "models.Object": {
             "title": "Object",
@@ -412,11 +428,11 @@
         },
         {
             "name": "user",
-            "description": "Operations about Users\n"
+            "description": "Operations about 用户信息\n"
         },
         {
-            "name": "default",
-            "description": "Operations about default\n"
+            "name": "version",
+            "description": "Operations about   版本信息\n"
         }
     ]
 }

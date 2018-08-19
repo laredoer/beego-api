@@ -1,12 +1,12 @@
 package controllers
 
-// Operations about default
+// Operations about   版本信息
 type DefaultController struct {
 	BaseController
 }
-// @Title welcome
-// @Description get welcome info
-// @Success 200 {object} Response
+// @Title version
+// @Description get version info
+// @Success 200 {object} controllers.Response
 // @router / [get]
 func (this *DefaultController) GetAll() {
 	this.Data["json"] = Response{0, "success.", "API 1.0"}
